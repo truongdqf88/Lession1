@@ -1,0 +1,14 @@
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.Application/bin/
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.Domain/bin/
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.Domain/obj/
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.Infrastructure/obj/
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.WebAPI/bin/
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.WebAPI/obj/
+CleanArchitecture/CleanArchitecture/.vs/
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.Application/obj/
+CleanArchitecture/CleanArchitecture/src/CleanArchitecture.Infrastructure/bin/
+Middleware/.vs/
+Middleware/Middleware/bin/
+Middleware/Middleware/obj/
+Middleware/WebUIMiddleware/bin/
+Middleware/WebUIMiddleware/obj/
