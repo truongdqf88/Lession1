@@ -1,10 +1,11 @@
 ﻿using CleanArchitecture.Domain.Entites;
 using CleanArchitecture.Domain.Enums;
+using MediatR;
 using System;
 
 namespace CleanArchitecture.Application.Models
 {
-    public class Product : AuditableEntity
+    public class CreateProductCommandRequestModel : AuditableEntity, IRequest<ProductCommandResponseModel>
     {
         public Guid ProductID { get; set; }
 

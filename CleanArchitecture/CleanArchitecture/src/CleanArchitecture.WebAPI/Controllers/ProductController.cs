@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Application.DatabaseServices;
 using CleanArchitecture.Application.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,41 +13,50 @@ namespace CleanArchitecture.WebAPI.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _productService;
+        private readonly IMediator _mediator;
 
-        public ProductController(IProductService productService)
+        public ProductController(IMediator mediator)
         {
-            _productService = productService;
+            _mediator = mediator;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Product>> Get()
+        public async Task<IEnumerable<ProductQueryResponseModel>> Get()
         {
-            return await _productService.GetProductsAsync();
+            GetAllProductQueryRequestModel request = new GetAllProductQueryRequestModel();
+            return await _mediator.Send(request);
         }
 
         [HttpGet("{id}")]
-        public async Task<Product> Get(Guid id)
+        public async Task<ProductQueryResponseModel> Get(Guid id)
         {
-            return await _productService.GetProductByIdAsync(id);
+            GetByIdProductQueryRequestModel request = new GetByIdProductQueryRequestModel()
+            {
+                ProductID = id
+            };
+            return await _mediator.Send(request);
         }
 
         [HttpPost]
-        public async Task<bool> Post(Product request)
+        public async Task<ProductCommandResponseModel> Post(CreateProductCommandRequestModel request)
         {
-            return await _productService.CreateProductAsync(request);
+            return await _mediator.Send(request);
         }
 
         [HttpPut]
-        public async Task<bool> Put(Product request)
+        public async Task<ProductCommandResponseModel> Put(UpdateProductCommandRequestModel request)
         {
-            return await _productService.UpdateProductAsync(request);
+            return await _mediator.Send(request);
         }
 
         [HttpDelete("{id}")]
-        public async Task<bool> Delete(Guid id)
+        public async Task<ProductCommandResponseModel> Delete(Guid id)
         {
-            return await _productService.DeleteProductAsync(id);
+            DeleteProductCommandRequestModel request = new DeleteProductCommandRequestModel()
+            {
+                ProductID = id
+            };
+            return await _mediator.Send(request);
         }
     }
 }
