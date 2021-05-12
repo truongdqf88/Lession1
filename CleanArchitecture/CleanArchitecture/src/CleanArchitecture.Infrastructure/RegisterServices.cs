@@ -1,4 +1,5 @@
-﻿using CleanArchitecture.Infrastructure.DatabaseServices;
+﻿using CleanArchitecture.Application.DatabaseServices;
+using CleanArchitecture.Infrastructure.DatabaseServices;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +13,7 @@ namespace CleanArchitecture.Infrastructure
         {
             services.AddMediatR(Assembly.GetExecutingAssembly());
             //services.AddTransient<IProductTypeService, ProductTypeService>();
-            //services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IDatabaseConnectionFactory>(e =>
             {
                 return new SqlConnectionFactory(configuration["ConnectionStrings:ProductDatabase"]);
