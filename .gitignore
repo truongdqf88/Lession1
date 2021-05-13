@@ -12,3 +12,10 @@ Middleware/Middleware/bin/
 Middleware/Middleware/obj/
 Middleware/WebUIMiddleware/bin/
 Middleware/WebUIMiddleware/obj/
+CleanArchitecture/CleanArchitecture/APIGateway/bin/
+CleanArchitecture/CleanArchitecture/APIGateway/obj/
+CleanArchitecture/CleanArchitecture/IdentityServer/bin/
+CleanArchitecture/CleanArchitecture/IdentityServer/obj/
+CleanArchitecture/CleanArchitecture/APIGateway/APIGateway.csproj.user
+CleanArchitecture/CleanArchitecture/IdentityServer/IdentityServer.csproj.user
+CleanArchitecture/CleanArchitecture/IdentityServer/tempkey.jwk

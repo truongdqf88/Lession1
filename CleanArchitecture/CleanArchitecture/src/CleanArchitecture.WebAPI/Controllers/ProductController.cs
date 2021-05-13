@@ -58,5 +58,11 @@ namespace CleanArchitecture.WebAPI.Controllers
             };
             return await _mediator.Send(request);
         }
+
+        [HttpGet("aggregate")]
+        public async Task<IActionResult> AggregateProduct()
+        {
+            return Ok("This is Aggregate Product");
+        }
     }
 }
